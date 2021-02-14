@@ -1,0 +1,46 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Basic Vue Js - HelloWorld App</title>
+
+  <!-- https://google.github.io/material-design-icons/#icon-font-for-the-web -->
+  <!-- Using via Google Web Fonts -->
+  <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet" />
+
+  <!-- https://tailwindcss.com/docs/installation -->
+  <!-- Using Tailwind via CDN -->
+  <link href="https://unpkg.com/tailwindcss@^2/dist/tailwind.min.css" rel="stylesheet" />
+
+  <!-- https://v3.vuejs.org/guide/installation.html#release-notes -->
+  <!-- Vue CDN -->
+  <script src="https://unpkg.com/vue@next"></script>
+
+</head>
+
+<body>
+
+  <div id="app" class="max-w-xl mx-auto my-10 space-y-3">
+    <h1 class="text-xl">DPR live's song lists ({{list.length}})</h1>
+    <ul>
+      <li v-for="(l, index) in list">
+        <img v-bind:src="l.pic" class="rounded-lg w-1/4 h-1/4" /> {{l.title}}
+        <div class="space-y-3">
+          <button v-on:click="toggle(index)">
+            <span v-show="l.fav" class="material-icons fill-current text-red-500">favorite</span>
+            <span v-if="l.fav == false" class="material-icons">favorite</span>
+          </button>
+        </div>  
+      </li>
+    </ul>
+    <h2> count {{countFav}}</h2>
+  </div>
+
+  <!-- my main.js -->
+  <script src="./main.js"></script>
+
+</body>
+
+</html>
